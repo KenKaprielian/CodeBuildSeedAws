@@ -2,5 +2,9 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+        php: 7.3
+  build:
     commands:
+      - php --version
       - echo doing the build here!
