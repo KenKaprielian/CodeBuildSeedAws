@@ -1,0 +1,14 @@
+CodeBuildProject:
+  Type: AWS::CodeBuild::Project
+  Properties:
+    Name: wow-api-lootfeed
+    ServiceRole: my-example-service-role
+    Artifacts:
+      Type: NO_ARTIFACTS
+    Environment:
+      Type: LINUX_CONTAINER
+      ComputeType: BUILD_GENERAL1_SMALL
+      Image: aws/codebuild/standard:1.0
+    Source:
+      Type: GITHUB
+      Location: wow-api-lootfeed
