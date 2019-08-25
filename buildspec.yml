@@ -10,10 +10,10 @@ phases:
 
       - echo "hii"
       - |
-        if [ "X$TEMPLATE_PREFIX" = "X" ]; then
-          aws s3 cp "$child_template" "s3://$TEMPLATE_BUCKET/$child_template"
+        if [ "X" = "X" ]; then
+          echo was true--
         else
-          aws s3 cp "$child_template" "s3://$TEMPLATE_BUCKET/$TEMPLATE_PREFIX/$child_template"
+          echo was false--
         fi
         done
       - aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
