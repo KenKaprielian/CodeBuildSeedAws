@@ -10,10 +10,9 @@ phases:
 
       - echo "hii"
       - |
-        if [ "X" = "X" ]; then
-          echo was true--
-        else
-          echo was false--
-        fi
-        done
+          if [ "X" = "X" ]; then
+            echo was true--
+          else
+            echo was false--
+          fi
       - aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
