@@ -7,4 +7,14 @@ phases:
   build:
     commands:
       - echo doing the build here!
+
+      - echo "${CODEBUILD_BUILD_ARN}"
+      - |
+        if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProjectDev-" >/dev/null; then
+          #yarn run build-dev;
+        fi
+      - |
+        if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
+          #yarn run build-prod;
+        fi
       - aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
