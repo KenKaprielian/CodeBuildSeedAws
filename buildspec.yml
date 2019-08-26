@@ -8,7 +8,8 @@ phases:
     commands:
       - echo doing the build here!
 
-      - echo "hii"
+      - stackstate = hithere
+      - echo $stackstate
       - |
           if [ "X" = "X" ]; then
             echo was true--
