@@ -10,8 +10,8 @@ phases:
       - stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus)
       - echo $stackstate
       - |
-          if [ "X" = "X" ]; then
-            echo was true--
+          if [ $stackstate = "ROLLBACK_COMPLETE" ]; then
+            echo stack is in $stackstate, delete it
           else
             echo was false--
           fi
