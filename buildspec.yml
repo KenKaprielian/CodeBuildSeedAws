@@ -16,5 +16,5 @@ phases:
           else
             echo do somthing else
           fi
-          aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml 2> /dev/null
-          aws cloudformation update-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml 2> /dev/null
+          aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml &> /dev/null
+          aws cloudformation update-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml &> /dev/null
