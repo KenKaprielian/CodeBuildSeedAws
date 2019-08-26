@@ -15,6 +15,6 @@ phases:
             aws cloudformation delete-stack --stack-name wow-api-stack
             #aws cloudformation waitstack
           else
-           #echo create the stack
+            echo do somthing else
           fi
-      - #aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
+      - echo the end #aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
