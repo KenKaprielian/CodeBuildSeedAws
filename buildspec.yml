@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - echo doing the build here!
-      - stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks)
+      - stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks.[0].StackStatus)
       - echo $stackstate
       - |
           if [ "X" = "X" ]; then
