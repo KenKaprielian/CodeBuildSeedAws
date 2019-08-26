@@ -6,79 +6,15 @@ phases:
       java: corretto11
   build:
     commands:
-      - echo doing the build here!
-      - export stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus)
-      - echo $stackstate
-      - |
-          if ( "${stackstate}" = "ROLLBACK_COMPLETE" ); then
+      - | 
+          echo doing the build here!
+          stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus)
+          echo $stackstate
+          if [ "$stackstate" = "ROLLBACK_COMPLETE" ]; then
             echo stack is in ROLLBACK_COMPLETE delete it 1
             aws cloudformation delete-stack --stack-name wow-api-stack
             #aws cloudformation waitstack
           else
             echo do somthing else
           fi
-      - |
-          if ( "$stackstate" = "ROLLBACK_COMPLETE" ); then
-            echo stack is in ROLLBACK_COMPLETE delete it 2
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if ( "$stackstate" = "ROLLBACK_COMPLETE" ); then
-            echo stack is in ROLLBACK_COMPLETE delete it 3
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ '${stackstate}' = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 4
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ '$stackstate' = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 5
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ "${stackstate}" = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 6
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ '${stackstate}' = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 7
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ $stackstate = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 8
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - |
-          if [ ${stackstate} = "ROLLBACK_COMPLETE" ]; then
-            echo stack is in ROLLBACK_COMPLETE delete it 9
-            aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
-          else
-            echo do somthing else
-          fi
-      - echo the end #aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
+          echo the end #aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
