@@ -10,7 +10,7 @@ phases:
       - export stackstate=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus)
       - echo $stackstate
       - |
-          if [ "${stackstate}" = "ROLLBACK_COMPLETE" ]; then
+          if ( "${stackstate}" = "ROLLBACK_COMPLETE" ); then
             echo stack is in ROLLBACK_COMPLETE delete it 1
             aws cloudformation delete-stack --stack-name wow-api-stack
             #aws cloudformation waitstack
@@ -18,7 +18,7 @@ phases:
             echo do somthing else
           fi
       - |
-          if [ "$stackstate" = "ROLLBACK_COMPLETE" ]; then
+          if ( "$stackstate" = "ROLLBACK_COMPLETE" ); then
             echo stack is in ROLLBACK_COMPLETE delete it 2
             aws cloudformation delete-stack --stack-name wow-api-stack
             #aws cloudformation waitstack
@@ -26,7 +26,7 @@ phases:
             echo do somthing else
           fi
       - |
-          if [ "$stackstate" = "ROLLBACK_COMPLETE" ]; then
+          if ( "$stackstate" = "ROLLBACK_COMPLETE" ); then
             echo stack is in ROLLBACK_COMPLETE delete it 3
             aws cloudformation delete-stack --stack-name wow-api-stack
             #aws cloudformation waitstack
