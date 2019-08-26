@@ -4,7 +4,7 @@ Resources:
     Type: AWS::CodeBuild::Project
     Properties:
       Name: wow-api-lootfeed
-      ServiceRole: service-role/kenbuildrole
+      ServiceRole: arn:aws:iam::507345043141:role/service-role/kenbuildrole
       Artifacts:
         Type: NO_ARTIFACTS
       Environment:
