@@ -11,9 +11,9 @@ phases:
           echo $STACK_STATUS
           if [ "ROLLBACK_COMPLETE" == "${STACK_STATUS}" ]; then
             echo stack is in ROLLBACK_COMPLETE delete it 1
-            #aws cloudformation delete-stack --stack-name wow-api-stack
-            #aws cloudformation waitstack
+            aws cloudformation delete-stack --stack-name wow-api-stack
+            aws cloudformation waitstack stack-delete-complete --stack-name wow-api-stack
           else
             echo do somthing else
           fi
-          echo the end #aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
+          echo aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
