@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - | 
-          STACK_STATUS=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus | xargs)
+          STACK_STATUS=$(aws cloudformation describe-stacks --stack-name wow-api-stack | jq .Stacks | jq .[0] | jq .StackStatus | xargs &> /dev/null) 
           echo $STACK_STATUS
           if [ "ROLLBACK_COMPLETE" == "${STACK_STATUS}" ]; then
             echo stack is in ROLLBACK_COMPLETE delete it
