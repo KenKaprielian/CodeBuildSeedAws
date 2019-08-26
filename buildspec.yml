@@ -13,8 +13,15 @@ phases:
             echo stack is in ROLLBACK_COMPLETE delete it
             aws cloudformation delete-stack --stack-name wow-api-stack
             aws cloudformation wait stack-delete-complete --stack-name wow-api-stack
-          else
-            echo do somthing else
+            aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
+          else            
+            if [ "x" == "x${STACK_STATUS}" ]; then
+              echo stack doesnt exist, create it
+              aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml
+            else
+              stack exists but isnt rolled back,  update it
+              aws cloudformation update-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml &> /dev/null
+            fi
           fi
-          aws cloudformation create-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml &> /dev/null
-          aws cloudformation update-stack --stack-name wow-api-stack --template-body file://seededjob1.yaml &> /dev/null
+
+          
