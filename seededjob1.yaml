@@ -13,4 +13,4 @@ Resources:
         Image: aws/codebuild/standard:1.0
       Source:
         Type: GITHUB
-        Location: wow-api-lootfeed
+        Location: https://github.com/KenKaprielian/wow-api-lootfeed
