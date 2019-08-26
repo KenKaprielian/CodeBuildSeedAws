@@ -8,7 +8,7 @@ phases:
     commands:
       - echo doing the build here!
       - aws cloudformation describe-stacks --stack-name wow-api-stack
-      - export stackstate = hithere
+      - stackstate="hithere"
       - echo $stackstate
       - |
           if [ "X" = "X" ]; then
