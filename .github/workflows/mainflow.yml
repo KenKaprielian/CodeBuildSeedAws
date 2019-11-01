@@ -20,7 +20,7 @@ jobs:
           sleep .5
           echo "${{ secrets.secret_key }}"
           sleep .5
-          echo "us-east"
+          echo "us-east-1"
           sleep .5
           echo "json"
         ) | aws configure
