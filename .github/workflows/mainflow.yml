@@ -16,13 +16,14 @@ jobs:
         aws --version
         (
           sleep .5
-          echo ""
+          echo "${{ secrets.access_key }}"
           sleep .5
-          echo ""
+          echo "${{ secrets.secret_key }}"
           sleep .5
-          echo ""
+          echo "us-east"
           sleep .5
-          echo ""
+          echo "json"
         ) | aws configure
+        aws s3 ls
         echo Add other actions to build,
         echo test, and deploy your project.
