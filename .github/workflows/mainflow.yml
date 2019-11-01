@@ -24,6 +24,8 @@ jobs:
           sleep .5
           echo "json"
         ) | aws configure
-        aws s3 ls
+        ls -a
+        echo "hey hey" >> heyfile
+        aws s3 cp s3://kens3bucketmm heyfile
         echo Add other actions to build,
         echo test, and deploy your project.
