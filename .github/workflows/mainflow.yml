@@ -26,6 +26,6 @@ jobs:
         ) | aws configure
         ls -a
         echo "hey hey" >> heyfile
-        aws s3 cp s3://kens3bucketmm heyfile
+        aws s3 cp s3://kens3bucketmm/newfolder heyfile
         echo Add other actions to build,
         echo test, and deploy your project.
