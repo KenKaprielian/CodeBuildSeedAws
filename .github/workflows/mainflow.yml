@@ -24,6 +24,18 @@ jobs:
           sleep .5
           echo "json"
         ) | aws configure
+        
+        (
+          sleep .5
+          echo ""
+          sleep .5
+          echo ""
+          sleep .5
+          echo ""
+          sleep .5
+          echo ""
+        ) | aws configure
+        
         ls -a
         echo "hey hey" >> heyfile
         aws s3 cp s3://kens3bucketmm/newfolder heyfile
