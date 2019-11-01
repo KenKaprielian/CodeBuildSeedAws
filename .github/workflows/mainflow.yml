@@ -37,6 +37,10 @@ jobs:
           echo ""
         ) | aws configure
         
+        echo "secret: ${{ secrets.access_key }}"
+        
+        cat ~/.aws/config
+        
         ls -a
         echo "hey hey" >> heyfile
         aws s3 cp heyfile s3://kens3bucketmm/newfile
