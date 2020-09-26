@@ -26,3 +26,4 @@ phases:
               aws cloudformation update-stack --stack-name ${stackname} --template-body file://${cloudfile}
             fi
           fi
+
