@@ -13,4 +13,4 @@ Resources:
         Image: aws/codebuild/amazonlinux2-x86_64-standard:1.0
       Source:
         Type: GITHUB
-        Location: https://github.com/KenKaprielian/wow-api-lootfeed
+        Location: https://github.com/KenKaprielian/wow-api-lootfeed 
